@@ -65,5 +65,7 @@ const asyncLoad = (action, data, $resContainer) => {
             $resContainer.html(response).show();
         }
         return true;
+    }).catch(function (xhr, status, error) {
+        console.error(xhr, status, error);
     });
 };
