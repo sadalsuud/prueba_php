@@ -1,0 +1,1 @@
+<script src="<?php echo DOMAIN_ROOT; ?>assets/js/app.js"></script>

@@ -1,0 +1,14 @@
+RewriteEngine on
+Options -Indexes
+
+# Force https security certificate
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+#System error handling
+FallbackResource /app/pages/error.php?error=404
+ErrorDocument 403 /app/pages/error.php?error=403
+ErrorDocument 404 /app/pages/error.php?error=404
+ErrorDocument 500 /app/pages/error.php?error=500
+ErrorDocument 503 /app/pages/error.php?error=503
+ErrorDocument 504 /app/pages/error.php?error=504
