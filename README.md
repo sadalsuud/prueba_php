@@ -2,8 +2,8 @@
 
 ## Objectivos
 - Crear branch `dev` para realizar prueba, realizar todos los cambios dentro de este branch
-- Corregir errores que se encuentren en el sistema
 - El archivo phptest.sql contiene la base de datos. se puede descargar e importar. 
+- Corregir errores que se encuentren en el sistema
     - El listado de ordenes se debe cargar al abrir la pagina
 - Filtrar ordenes por rango de fechas
 - Ajustar campos `Salida` y `Retorno` de tipo texto a fecha en frontend 
