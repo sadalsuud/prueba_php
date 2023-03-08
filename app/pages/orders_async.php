@@ -2,7 +2,11 @@
 
 require_once '../lib/core.lib.php';
 
-if ($GPC['type'] == 'list-orders') { ?>
+if ($GPC['type'] == 'list-orders') { 
+    
+    $orders = Orders::getInstance()->getTime($GPC)
+
+?>
     <form class="mb-3" class="filter-form" action="orders_async.php" data-target=".filter-results">
         <input type="hidden" name="type" value="filter-orders">
 
@@ -62,6 +66,7 @@ if ($GPC['type'] == 'list-orders') { ?>
 
 if ($GPC['type'] == 'filter-orders') {
     $arrOrders = Orders::getInstance()->getOrders($GPC);
+    $arrOrdersDemo = Orders::getInstance()->getOrdersAll($GPC)
     ?>
     <table class="table table-striped table-border">
         <thead>
