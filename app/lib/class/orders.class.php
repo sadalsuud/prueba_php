@@ -14,11 +14,11 @@ class Orders extends DBTools
             $query .= " AND destino LIKE '%{$data['destino']}%'";
         }
 
-        if ($data['salida']) {
+        if ($data['salida'] && !$data['retorno']) {
             $query .= " AND salida LIKE '%{$data['salida']}%'";
         }
 
-        if ($data['retorno']) {
+        if ($data['retorno'] && !$data['salida']) {
             $query .= " AND retorno LIKE '%{$data['retorno']}%'";
         }
 
@@ -33,6 +33,10 @@ class Orders extends DBTools
         if ($data['hora']) {
             $query .= " AND hora LIKE '%{$data['hora']}%'";
         }
+        if ($data['salida'] && $data['retorno']) {
+            $query .= " AND salida >= '{$data['salida']}' AND retorno <= '{$data['retorno']}'";
+        }
+
 
         return $this->exec($query);
     }
