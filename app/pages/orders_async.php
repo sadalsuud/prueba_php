@@ -2,13 +2,14 @@
 
 require_once '../lib/core.lib.php';
 
+/** @var array $GPC */
 if ($GPC['type'] == 'list-orders') {
 
 //    $orders = Orders::getInstance()->getTime($GPC);
     $orders = Orders::getInstance()->getOrders([""]);
     ?>
     <!--    <form class="mb-3" class="filter-form" action="orders_async.php" data-target=".filter-results">-->
-    <form class="mb-3 filter-form" class="filter-form" action="orders_async.php">
+    <form class="mb-3 filter-form" action="orders_async.php">
         <input type="hidden" name="type" value="filter-orders">
 
         <div class="row mb-3">
@@ -122,7 +123,7 @@ if ($GPC['type'] == 'record-orders') {
 
                         <div class="form-group">
                             <label>Estatus</label>
-                            <select name="estatus" class="form-select">
+                            <select name="estatus" class="form-control">
                                 <option value="" selected>Escoja una opción</option>
                                 <option value="1">Activo</option>
                                 <option value="2">En proceso</option>
@@ -131,7 +132,6 @@ if ($GPC['type'] == 'record-orders') {
                                 <option value="5">Anulado</option>
                                 <option value="6">Prueba</option>
                             </select>
-                            <input type="text" class="form-control" name="total" placeholder="Buscar">
                         </div>
 
                         <div class="form-group">
